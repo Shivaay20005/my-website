@@ -96,3 +96,14 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+
+/* Mobile Menu Toggle */
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenu) {
+    mobileMenu.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+}
