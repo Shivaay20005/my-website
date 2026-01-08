@@ -1,261 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Shivaay | Digital Playground</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Orbitron', sans-serif;
-}
-
-body{
-  min-height:100vh;
-  background: radial-gradient(circle at top, #0f172a, #020617);
-  color:white;
-  overflow-x:hidden;
-}
-
-/* glowing background orbs */
-.orb{
-  position:absolute;
-  width:300px;
-  height:300px;
-  filter: blur(120px);
-  opacity:0.6;
-  animation: float 10s infinite alternate ease-in-out;
-}
-.orb.one{ background:#22d3ee; top:10%; left:10%; }
-.orb.two{ background:#a855f7; bottom:10%; right:10%; animation-delay:2s; }
-
-@keyframes float{
-  from{ transform: translateY(0px);}
-  to{ transform: translateY(-80px);}
-}
-
-/* navbar */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 8%;
-  backdrop-filter: blur(10px);
-}
-
-.logo{
-  font-size:24px;
-  letter-spacing:2px;
-  color:#22d3ee;
-}
-
-nav button{
-  padding:10px 22px;
-  border:none;
-  border-radius:30px;
-  background: linear-gradient(135deg,#22d3ee,#a855f7);
-  color:black;
-  cursor:pointer;
-  transition:.3s;
-}
-nav button:hover{
-  transform:scale(1.1);
-}
-
-/* hero */
-.hero{
-  min-height:80vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-}
-
-.hero h1{
-  font-size:clamp(2rem,5vw,4rem);
-  background: linear-gradient(90deg,#22d3ee,#a855f7,#22d3ee);
-  -webkit-background-clip:text;
-  color:transparent;
-  animation: shine 5s linear infinite;
-}
-
-@keyframes shine{
-  from{ background-position:0%; }
-  to{ background-position:200%; }
-}
-
-.hero p{
-  max-width:600px;
-  margin:20px auto;
-  opacity:0.8;
-  line-height:1.6;
-}
-
-.hero .cta{
-  margin-top:30px;
-  padding:15px 40px;
-  border-radius:40px;
-  background: transparent;
-  border:2px solid #22d3ee;
-  color:#22d3ee;
-  cursor:pointer;
-  transition:.3s;
-}
-.hero .cta:hover{
-  background:#22d3ee;
-  color:black;
-  box-shadow:0 0 25px #22d3ee;
-}
-
-/* cards */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-  padding:60px 8%;
-}
-
-.card{
-  background:rgba(255,255,255,0.05);
-  border-radius:18px;
-  padding:30px;
-  backdrop-filter: blur(12px);
-  transition:.4s;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-}
-
-.card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,#22d3ee,transparent);
-  opacity:0;
-  transition:.4s;
-}
-
-.card:hover::after{
-  opacity:0.2;
-}
-
-.card:hover{
-  transform: translateY(-10px) scale(1.03);
-  box-shadow:0 15px 40px rgba(0,0,0,0.6);
-}
-
-.card h3{
-  margin-bottom:10px;
-  color:#22d3ee;
-}
-
-footer{
-  text-align:center;
-  padding:40px;
-  opacity:0.6;
-}
-
-/* floating particles */
-canvas{
-  position:fixed;
-  inset:0;
-  z-index:-1;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Shivaay | Digital Universe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
+  <canvas id="particles"></canvas>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
 
-<div class="orb one"></div>
-<div class="orb two"></div>
+  <nav>
+    <a href="index.html" class="logo">SHIVAAY</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
 
-<nav>
-  <div class="logo">SHIVAAY</div>
-  <button onclick="alert('Welcome to Shivaay World 😎')">Explore</button>
-</nav>
+  <section class="hero">
+    <h1>Welcome to the <br> <span class="highlight">Next Gen</span></h1>
+    <p>Experience the future of web design used by Shivaay. Crafted with precision, powered by chaos.</p>
+    <div>
+      <a href="projects.html" class="btn btn-primary">View Projects</a>
+    </div>
+  </section>
 
-<section class="hero">
-  <h1>Build. Break. Dominate.</h1>
-  <p>
-    This is a futuristic single-file website crafted using pure HTML, CSS and JavaScript.
-    Smooth animations, glowing UI and zero libraries.
-  </p>
-  <button class="cta" onclick="scrollToCards()">Show Power</button>
-</section>
+  <section class="container">
+    <h2 class="section-title" data-text="Features">Features</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>⚡ Ultra Fast</h3>
+        <p>Optimized for extreme performance and smooth user experience.</p>
+      </div>
+      <div class="card">
+        <h3>🎨 Modern UI</h3>
+        <p>Glassmorphism, neon glows, and interactive 3D elements.</p>
+      </div>
+      <div class="card">
+        <h3>🚀 Scalable</h3>
+        <p>Built with clean code structure ready for future expansion.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="cards" id="cards">
-  <div class="card">
-    <h3>⚡ Speed</h3>
-    <p>Ultra lightweight single file website optimized for performance.</p>
-  </div>
-  <div class="card">
-    <h3>🎨 Design</h3>
-    <p>Modern glassmorphism, gradients and smooth animations.</p>
-  </div>
-  <div class="card">
-    <h3>🧠 Control</h3>
-    <p>Fully customizable UI and logic in one file.</p>
-  </div>
-</section>
+  <footer>
+    © 2026 Shivaay • Built for the Future
+  </footer>
 
-<footer>
-  © 2026 Shivaay • Crafted with Code & Chaos
-</footer>
-
-<script>
-/* smooth scroll */
-function scrollToCards(){
-  document.getElementById("cards").scrollIntoView({behavior:"smooth"});
-}
-
-/* particle animation */
-const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
-resize();
-window.addEventListener("resize", resize);
-
-let particles = Array.from({length:80}, () => ({
-  x: Math.random()*canvas.width,
-  y: Math.random()*canvas.height,
-  r: Math.random()*2 + 1,
-  dx: (Math.random()-0.5)*0.7,
-  dy: (Math.random()-0.5)*0.7
-}));
-
-function resize(){
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-
-function animate(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  ctx.fillStyle="rgba(255,255,255,0.7)";
-  
-  particles.forEach(p=>{
-    p.x += p.dx;
-    p.y += p.dy;
-
-    if(p.x<0 || p.x>canvas.width) p.dx*=-1;
-    if(p.y<0 || p.y>canvas.height) p.dy*=-1;
-
-    ctx.beginPath();
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-    ctx.fill();
-  });
-
-  requestAnimationFrame(animate);
-}
-animate();
-</script>
-
+  <script src="script.js"></script>
 </body>
+
 </html>
